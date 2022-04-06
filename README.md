@@ -1,6 +1,6 @@
 # Daily Japanese
 
-A newspaper like website that give you your daily dose of japanese.
+A newspaper like website that gives you your daily dose of japanese.
 
 ## Collectors
 
