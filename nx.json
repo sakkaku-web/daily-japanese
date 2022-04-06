@@ -33,6 +33,7 @@
     "daily-japanese-e2e": {
       "tags": [],
       "implicitDependencies": ["daily-japanese"]
-    }
+    },
+    "newspaper-cloud": {}
   }
 }

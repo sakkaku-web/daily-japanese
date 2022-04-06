@@ -8,7 +8,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/daily-japanese",
             "index": "apps/daily-japanese/src/index.html",
@@ -20,7 +22,9 @@
               "apps/daily-japanese/src/favicon.ico",
               "apps/daily-japanese/src/assets"
             ],
-            "styles": ["apps/daily-japanese/src/styles.scss"],
+            "styles": [
+              "apps/daily-japanese/src/styles.scss"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -64,14 +68,20 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/daily-japanese/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/daily-japanese/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/daily-japanese"],
+          "outputs": [
+            "coverage/apps/daily-japanese"
+          ],
           "options": {
             "jestConfig": "apps/daily-japanese/jest.config.js",
             "passWithNoTests": true
@@ -99,9 +109,52 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/daily-japanese-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/daily-japanese-e2e/**/*.{js,ts}"
+            ]
+          }
+        }
+      }
+    },
+    "newspaper-cloud": {
+      "projectType": "application",
+      "root": "apps/newspaper-cloud",
+      "sourceRoot": "apps/newspaper-cloud/src",
+      "targets": {
+        "deploy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/newspaper-cloud",
+            "commands": [
+              {
+                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk deploy --require-approval=never; else cdk deploy --require-approval=never {args.stack}; fi"
+              }
+            ]
+          }
+        },
+        "destroy": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/newspaper-cloud",
+            "commands": [
+              {
+                "command": "if [ \"{args.stack}\" = \"undefined\" ]; then cdk destroy -f; else cdk destroy -f {args.stack}; fi"
+              }
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/apps/newspaper-cloud"
+          ],
+          "options": {
+            "jestConfig": "apps/newspaper-cloud/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
