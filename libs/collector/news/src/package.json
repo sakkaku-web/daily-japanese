@@ -2,5 +2,7 @@
   "name": "collector-news",
   "version": "1.0.0",
   "main": "src/app.js",
-  "dependencies": {}
+  "dependencies": {
+    "axios": "^0.26.1"
+  }
 }

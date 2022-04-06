@@ -27,6 +27,9 @@ export class AppStack extends cdk.Stack {
 
     const collectorNews = new Function(this, 'collector-news', {
       runtime: Runtime.NODEJS_14_X,
+      environment: {
+        NEWS_API: process.env.NEWS_API,
+      },
       code: Code.fromAsset(join(libsPath, 'collector/news')),
       handler: 'collector-news.handler',
       logRetention: RetentionDays.ONE_MONTH,
