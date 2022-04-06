@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "collector-news": {
+      "tags": []
+    },
     "daily-japanese": {
       "tags": []
     },

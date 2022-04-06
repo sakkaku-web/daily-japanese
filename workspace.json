@@ -1,6 +1,42 @@
 {
   "version": 2,
   "projects": {
+    "collector-news": {
+      "root": "libs/collector/news",
+      "sourceRoot": "libs/collector/news/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "libs/collector/news/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/collector/news"
+          ],
+          "options": {
+            "jestConfig": "libs/collector/news/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "package": {
+          "executor": "@myin/aws-cdk:package",
+          "options": {
+            "entryFile": "libs/collector/news/src/index.ts",
+            "tsConfig": "libs/collector/news/tsconfig.lib.json",
+            "outputPath": "dist/libs/collector/news"
+          }
+        }
+      }
+    },
     "daily-japanese": {
       "root": "apps/daily-japanese",
       "sourceRoot": "apps/daily-japanese/src",

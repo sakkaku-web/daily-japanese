@@ -2,7 +2,12 @@
 
 A newspaper like website that give you your daily dose of japanese.
 
+## Collectors
+
+- [News](./libs/collector/news/): https://newsapi.org/docs/
+
 ---
+
 ## Development
 
 This project was generated using [Nx](https://nx.dev).
