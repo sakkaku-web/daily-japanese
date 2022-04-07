@@ -1,4 +1,3 @@
-import styles from './app.module.scss';
 import { News, NewspaperClient } from '@sakkaku-web/api-newspaper-client';
 import { useEffect, useState } from 'react';
 
