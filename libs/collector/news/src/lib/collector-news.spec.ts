@@ -1,19 +1,19 @@
-import { handler } from './app';
+import axios from 'axios';
+import { handler } from './collector-news';
 
-describe('Tests index', function () {
+jest.mock('axios', () => ({
+  get: jest.fn(),
+}));
 
-    it('verifies successful response', async () => {
-        let ev, context;
-        const result = await handler(ev, context)
+describe('Collector News', function () {
+  it('should get for country jp', async () => {
+    const mockedGet = axios.get as jest.MockedFunction<typeof axios.get>;
+    mockedGet.mockResolvedValue({ data: {} });
 
-        expect(result).toBeInstanceOf('object');
-        expect(result.statusCode).toEqual(200);
-        expect(result.body).toBeInstanceOf('string');
+    const result = await handler(null);
 
-        const response = JSON.parse(result.body);
-
-        expect(response).toBeInstanceOf('object');
-        expect(response.message).toEqual('hello world');
-        // expect(response.location).toBeInstanceOf('string');
-    });
+    expect(mockedGet).toHaveBeenCalledWith(
+      expect.stringContaining('country=jp')
+    );
+  });
 });

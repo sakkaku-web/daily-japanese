@@ -8,7 +8,7 @@ import { join } from 'path';
 import {
   DAILY_NEWSPAPER_TABLE,
   DailyNewspaperTableColumn,
-} from '@sakkaku-web/shared-cloud';
+} from '../../../../libs/shared-cloud/src';
 
 const libsPath = '../../dist/libs';
 
