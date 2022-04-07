@@ -131,7 +131,7 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/daily-japanese",
+              "baseHref": "/daily-japanese/",
               "fileReplacements": [
                 {
                   "replace": "apps/daily-japanese/src/environments/environment.ts",
