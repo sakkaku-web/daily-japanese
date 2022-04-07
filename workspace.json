@@ -136,6 +136,28 @@
         }
       }
     },
+    "newspaper-client": {
+      "root": "libs/newspaper-client",
+      "sourceRoot": "libs/newspaper-client/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/newspaper-client/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/newspaper-client"],
+          "options": {
+            "jestConfig": "libs/newspaper-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "newspaper-cloud": {
       "projectType": "application",
       "root": "apps/newspaper-cloud",

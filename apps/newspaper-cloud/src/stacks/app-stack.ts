@@ -4,6 +4,8 @@ import { Runtime, Code, Function } from '@aws-cdk/aws-lambda';
 import { Table, AttributeType } from '@aws-cdk/aws-dynamodb';
 import { Rule, Schedule } from '@aws-cdk/aws-events';
 import { LambdaFunction } from '@aws-cdk/aws-events-targets';
+import { HttpApi, HttpMethod, CorsHttpMethod } from '@aws-cdk/aws-apigatewayv2';
+import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations';
 import { join } from 'path';
 import {
   DAILY_NEWSPAPER_TABLE,
@@ -40,5 +42,14 @@ export class AppStack extends cdk.Stack {
     });
     table.grantReadWriteData(collectorNews);
     dailyRule.addTarget(new LambdaFunction(collectorNews));
+
+    const api = new HttpApi(this, 'daily-newspaper-api', {
+      corsPreflight: {
+        allowOrigins: [
+          'http://localhost:4200',
+          'https://sakkaku-web.github.io',
+        ],
+      },
+    });
   }
 }

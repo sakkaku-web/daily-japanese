@@ -23,6 +23,8 @@
   },
   "devDependencies": {
     "@aws-cdk/assert": "^1.46.0",
+    "@aws-cdk/aws-apigatewayv2": "^1.151.0",
+    "@aws-cdk/aws-apigatewayv2-integrations": "^1.151.0",
     "@aws-cdk/aws-dynamodb": "^1.151.0",
     "@aws-cdk/aws-events-targets": "^1.151.0",
     "@aws-cdk/aws-lambda": "^1.151.0",

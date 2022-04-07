@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@sakkaku-web/collector/news": ["libs/collector/news/src/index.ts"],
+      "@sakkaku-web/newspaper-client": ["libs/newspaper-client/src/index.ts"],
       "@sakkaku-web/shared-cloud": ["libs/shared-cloud/src/index.ts"]
     }
   },
