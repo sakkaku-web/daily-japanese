@@ -6,9 +6,22 @@ A newspaper like website that gives you your daily dose of japanese.
 
 - [News](./libs/collector/news/): https://newsapi.org/docs/
 
----
-
 ## Development
+
+### Testing Backend
+
+- Run `testing/start-sam.sh` to create a container for running SAM commands.
+
+  - `sam local start-lambda` - for testing lambda functions, can run `local-invoke.sh` afterwards
+  - `sam local start-api` - for testing rest api
+
+- Run `npm run template` to create a template for SAM.
+
+  - Environment variables are currently not automatically parsed from `.env`. Needs to be set manually.
+
+- Run `npm run package` to update the lambda functions. Doesn't require a restart of the SAM command.
+
+---
 
 This project was generated using [Nx](https://nx.dev).
 
