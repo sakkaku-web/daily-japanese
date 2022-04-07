@@ -3,11 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <title>DailyJapanese</title>
-    <base href="/">
+    <base href="/daily-japanese">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  </head>
+  <link rel="stylesheet" href="styles.0e4338761429b4eb16ac.css"></head>
   <body>
     <div id="root"></div>
-  <script src="runtime.js" type="module"></script><script src="polyfills.js" type="module"></script><script src="styles.js" type="module"></script><script src="vendor.js" type="module"></script><script src="main.js" type="module"></script></body>
+  <script src="runtime.28c323bf8ee123f67bad.esm.js" type="module"></script><script src="polyfills.715a6cd6d0de8e26308e.esm.js" type="module"></script><script src="main.0bd8e6b5574d0ba7241d.esm.js" type="module"></script></body>
+
+  <script>
+    (function () {
+      const redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect != location.href) {
+        console.log(`Redirected from ${redirect}`);
+        history.replaceState(null, null, redirect);
+      }
+    })();
+  </script>
 </html>
