@@ -13,15 +13,42 @@ const headlinesURL = `${baseURL}/top-headlines`;
 
 const dynamodb = new DynamoDBClient({});
 
-export const handler = async () => {
+enum Categories {}
+// BUSINESS = 'business',
+// ENTERTAINMENT = 'entertainment',
+// GENERAL = 'general',
+// HEALTH = 'health',
+// SCIENCE = 'science',
+// SPORTS = 'sports',
+// TECHNOLOGY = 'technology',
+
+function searchForCategory(category: string): Promise<any[]> {
   const query = new URLSearchParams({
     country: 'jp',
     apiKey: process.env.NEWS_API,
     pageSize: '5',
+    // category,
   });
+  return axios.get(`${headlinesURL}?${query.toString()}`).then((res) => {
+    return res.data.articles.map((article) => ({
+      // author: article.author,
+      title: article.title,
+      description: article.description,
+      url: article.url,
+      urlToImage: article.urlToImage,
+      publishedAt: article.publishedAt,
+      // category,
+    }));
+  });
+}
 
+export const handler = async () => {
   try {
-    const { data } = await axios.get(`${headlinesURL}?${query.toString()}`);
+    // const responses = await Promise.all(
+    //   Object.values(Categories).map(searchForCategory)
+    // );
+    // const flattened = responses.reduce((prev, curr) => prev.concat(curr), []);
+    const flattened = await searchForCategory(null);
 
     const today = new Date();
     const expires = add(today, { days: 3 });
@@ -37,13 +64,13 @@ export const handler = async () => {
             N: `${expires.getTime() / 1000}`,
           },
           [DailyNewspaperTableColumn.DATA]: {
-            S: JSON.stringify(data.articles),
+            S: JSON.stringify(flattened),
           },
         },
       })
     );
 
-    return data.articles;
+    return flattened;
   } catch (err) {
     console.log(err);
     return err;

@@ -11,9 +11,6 @@ export enum Collector {
   NEWS = 'news',
 }
 
-export function toDayCategoryId(
-  date: Date,
-  collector: Collector | string
-): string {
+export function toDayCategoryId(date: Date, collector: Collector | string): string {
   return `${format(date, 'yyyyMMdd')}#${collector}`;
 }
