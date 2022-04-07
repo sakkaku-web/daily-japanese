@@ -4,7 +4,7 @@ import { Runtime, Code, Function } from '@aws-cdk/aws-lambda';
 import { Table, AttributeType } from '@aws-cdk/aws-dynamodb';
 import { Rule, Schedule } from '@aws-cdk/aws-events';
 import { LambdaFunction } from '@aws-cdk/aws-events-targets';
-import { HttpApi, HttpMethod, CorsHttpMethod } from '@aws-cdk/aws-apigatewayv2';
+import { HttpApi, HttpMethod } from '@aws-cdk/aws-apigatewayv2';
 import { HttpLambdaIntegration } from '@aws-cdk/aws-apigatewayv2-integrations';
 import { join } from 'path';
 import {
@@ -50,6 +50,21 @@ export class AppStack extends cdk.Stack {
           'https://sakkaku-web.github.io',
         ],
       },
+    });
+
+    const getCollectorData = new Function(this, 'get-collector-data', {
+      runtime: Runtime.NODEJS_14_X,
+      code: Code.fromAsset(join(libsPath, 'api/get-collector-data')),
+      handler: 'api-get-collector-data.handler',
+      logRetention: RetentionDays.ONE_MONTH,
+    });
+    api.addRoutes({
+      path: '/daily-newspaper/{collector}',
+      methods: [HttpMethod.GET],
+      integration: new HttpLambdaIntegration(
+        'get-collector-data',
+        getCollectorData
+      ),
     });
   }
 }

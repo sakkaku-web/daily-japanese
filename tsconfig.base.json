@@ -15,8 +15,13 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@sakkaku-web/api-newspaper-client": [
+        "libs/api/newspaper-client/src/index.ts"
+      ],
+      "@sakkaku-web/api/get-collector-data": [
+        "libs/api/get-collector-data/src/index.ts"
+      ],
       "@sakkaku-web/collector/news": ["libs/collector/news/src/index.ts"],
-      "@sakkaku-web/newspaper-client": ["libs/newspaper-client/src/index.ts"],
       "@sakkaku-web/shared-cloud": ["libs/shared-cloud/src/index.ts"]
     }
   },

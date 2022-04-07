@@ -1,6 +1,70 @@
 {
   "version": 2,
   "projects": {
+    "api-get-collector-data": {
+      "root": "libs/api/get-collector-data",
+      "sourceRoot": "libs/api/get-collector-data/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/get-collector-data/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/get-collector-data"
+          ],
+          "options": {
+            "jestConfig": "libs/api/get-collector-data/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "package": {
+          "executor": "@myin/aws-cdk:package",
+          "options": {
+            "entryFile": "libs/api/get-collector-data/src/index.ts",
+            "tsConfig": "libs/api/get-collector-data/tsconfig.lib.json",
+            "outputPath": "dist/libs/api/get-collector-data"
+          }
+        }
+      }
+    },
+    "api-newspaper-client": {
+      "root": "libs/api/newspaper-client",
+      "sourceRoot": "libs/api/newspaper-client/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "libs/api/newspaper-client/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/api/newspaper-client"
+          ],
+          "options": {
+            "jestConfig": "libs/api/newspaper-client/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "collector-news": {
       "root": "libs/collector/news",
       "sourceRoot": "libs/collector/news/src",
@@ -8,14 +72,20 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/collector/news/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/collector/news/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/collector/news"],
+          "outputs": [
+            "coverage/libs/collector/news"
+          ],
           "options": {
             "jestConfig": "libs/collector/news/jest.config.js",
             "passWithNoTests": true
@@ -38,7 +108,9 @@
       "targets": {
         "build": {
           "executor": "@nrwl/web:build",
-          "outputs": ["{options.outputPath}"],
+          "outputs": [
+            "{options.outputPath}"
+          ],
           "options": {
             "outputPath": "dist/apps/daily-japanese",
             "index": "apps/daily-japanese/src/index.html",
@@ -50,7 +122,9 @@
               "apps/daily-japanese/src/favicon.ico",
               "apps/daily-japanese/src/assets"
             ],
-            "styles": ["apps/daily-japanese/src/styles.scss"],
+            "styles": [
+              "apps/daily-japanese/src/styles.scss"
+            ],
             "scripts": [],
             "webpackConfig": "@nrwl/react/plugins/webpack"
           },
@@ -94,14 +168,20 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/daily-japanese/**/*.{ts,tsx,js,jsx}"]
+            "lintFilePatterns": [
+              "apps/daily-japanese/**/*.{ts,tsx,js,jsx}"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/daily-japanese"],
+          "outputs": [
+            "coverage/apps/daily-japanese"
+          ],
           "options": {
             "jestConfig": "apps/daily-japanese/jest.config.js",
             "passWithNoTests": true
@@ -129,31 +209,13 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["apps/daily-japanese-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
-    "newspaper-client": {
-      "root": "libs/newspaper-client",
-      "sourceRoot": "libs/newspaper-client/src",
-      "projectType": "library",
-      "targets": {
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
-          "options": {
-            "lintFilePatterns": ["libs/newspaper-client/**/*.ts"]
-          }
-        },
-        "test": {
-          "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/newspaper-client"],
-          "options": {
-            "jestConfig": "libs/newspaper-client/jest.config.js",
-            "passWithNoTests": true
+            "lintFilePatterns": [
+              "apps/daily-japanese-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
@@ -187,7 +249,9 @@
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/newspaper-cloud"],
+          "outputs": [
+            "coverage/apps/newspaper-cloud"
+          ],
           "options": {
             "jestConfig": "apps/newspaper-cloud/jest.config.js",
             "passWithNoTests": true
@@ -202,14 +266,20 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": ["{options.outputFile}"],
+          "outputs": [
+            "{options.outputFile}"
+          ],
           "options": {
-            "lintFilePatterns": ["libs/shared-cloud/**/*.ts"]
+            "lintFilePatterns": [
+              "libs/shared-cloud/**/*.ts"
+            ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared-cloud"],
+          "outputs": [
+            "coverage/libs/shared-cloud"
+          ],
           "options": {
             "jestConfig": "libs/shared-cloud/jest.config.js",
             "passWithNoTests": true

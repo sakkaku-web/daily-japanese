@@ -33,7 +33,9 @@ export const handler = async () => {
           [DailyNewspaperTableColumn.DAY_CATEGORY_ID]: {
             S: toDayCategoryId(today, Collector.NEWS),
           },
-          [DailyNewspaperTableColumn.EXPIRES]: { N: `${expires.getTime()}` },
+          [DailyNewspaperTableColumn.EXPIRES]: {
+            N: `${expires.getTime() / 1000}`,
+          },
           [DailyNewspaperTableColumn.DATA]: {
             S: JSON.stringify(data.articles),
           },

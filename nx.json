@@ -27,6 +27,12 @@
     ]
   },
   "projects": {
+    "api-get-collector-data": {
+      "tags": []
+    },
+    "api-newspaper-client": {
+      "tags": []
+    },
     "collector-news": {
       "tags": []
     },
@@ -36,9 +42,6 @@
     "daily-japanese-e2e": {
       "tags": [],
       "implicitDependencies": ["daily-japanese"]
-    },
-    "newspaper-client": {
-      "tags": []
     },
     "newspaper-cloud": {},
     "shared-cloud": {
