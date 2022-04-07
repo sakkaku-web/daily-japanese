@@ -5,6 +5,10 @@ import { Table, AttributeType } from '@aws-cdk/aws-dynamodb';
 import { Rule, Schedule } from '@aws-cdk/aws-events';
 import { LambdaFunction } from '@aws-cdk/aws-events-targets';
 import { join } from 'path';
+import {
+  DAILY_NEWSPAPER_TABLE,
+  DailyNewspaperTableColumn,
+} from '@sakkaku-web/shared-cloud';
 
 const libsPath = '../../dist/libs';
 
@@ -17,12 +21,12 @@ export class AppStack extends cdk.Stack {
     });
 
     const table = new Table(this, 'daily-newspaper-table', {
-      tableName: 'DailyNewspaper',
+      tableName: DAILY_NEWSPAPER_TABLE,
       partitionKey: {
-        name: 'dayCategory',
+        name: DailyNewspaperTableColumn.DAY_CATEGORY_ID,
         type: AttributeType.STRING,
       },
-      timeToLiveAttribute: 'expires',
+      timeToLiveAttribute: DailyNewspaperTableColumn.EXPIRES,
     });
 
     const collectorNews = new Function(this, 'collector-news', {

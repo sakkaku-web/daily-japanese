@@ -37,6 +37,9 @@
       "tags": [],
       "implicitDependencies": ["daily-japanese"]
     },
-    "newspaper-cloud": {}
+    "newspaper-cloud": {},
+    "shared-cloud": {
+      "tags": []
+    }
   }
 }

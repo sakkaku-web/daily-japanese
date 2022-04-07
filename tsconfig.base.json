@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@sakkaku-web/collector/news": ["libs/collector/news/src/index.ts"]
+      "@sakkaku-web/collector/news": ["libs/collector/news/src/index.ts"],
+      "@sakkaku-web/shared-cloud": ["libs/shared-cloud/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
