@@ -120,7 +120,8 @@
             "tsConfig": "apps/daily-japanese/tsconfig.app.json",
             "assets": [
               "apps/daily-japanese/src/favicon.ico",
-              "apps/daily-japanese/src/assets"
+              "apps/daily-japanese/src/assets",
+              "apps/daily-japanese/src/404.html"
             ],
             "styles": [
               "apps/daily-japanese/src/styles.scss"
@@ -130,6 +131,7 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/daily-japanese",
               "fileReplacements": [
                 {
                   "replace": "apps/daily-japanese/src/environments/environment.ts",
