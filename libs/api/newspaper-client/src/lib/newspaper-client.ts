@@ -11,7 +11,7 @@ export class NewspaperClient {
   private async getCollectorData<T>(collector: Collector): Promise<T> {
     return axios
       .get(`${this.baseURL}/daily-newspaper/${collector}`)
-      .then((x) => JSON.parse(x.data));
+      .then((x) => x.data);
   }
 }
 

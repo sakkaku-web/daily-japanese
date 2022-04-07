@@ -13,8 +13,8 @@ export function App() {
   return (
     <div>
       <ul>
-        {news.map((x) => (
-          <li>
+        {news.map((x, i) => (
+          <li key={i}>
             <a href={x.url}>{x.title}</a>
           </li>
         ))}
