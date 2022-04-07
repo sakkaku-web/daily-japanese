@@ -58,6 +58,7 @@ export class AppStack extends cdk.Stack {
       handler: 'api-get-collector-data.handler',
       logRetention: RetentionDays.ONE_MONTH,
     });
+    table.grantReadData(getCollectorData);
     api.addRoutes({
       path: '/daily-newspaper/{collector}',
       methods: [HttpMethod.GET],
