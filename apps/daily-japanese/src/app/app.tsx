@@ -8,7 +8,7 @@ export function App() {
 
   useEffect(() => {
     client.getNews().then(setNews);
-  });
+  }, []);
 
   return (
     <div>
