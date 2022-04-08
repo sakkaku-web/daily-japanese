@@ -10,6 +10,7 @@ export enum DailyNewspaperTableColumn {
 
 export enum Collector {
   NEWS = 'news',
+  DAILY_WORD = 'daily-word',
 }
 
 export function toDayCategoryId(
@@ -19,7 +20,10 @@ export function toDayCategoryId(
   return `${format(date, 'yyyyMMdd')}#${collector}`;
 }
 
-export function saveCollectorData(data: any): Promise<any> {
+export function saveCollectorData(
+  collector: Collector,
+  data: any
+): Promise<any> {
   const today = new Date();
   const expires = add(today, { days: 3 });
 
@@ -29,7 +33,7 @@ export function saveCollectorData(data: any): Promise<any> {
       TableName: DAILY_NEWSPAPER_TABLE,
       Item: {
         [DailyNewspaperTableColumn.DAY_CATEGORY_ID]: {
-          S: toDayCategoryId(today, Collector.NEWS),
+          S: toDayCategoryId(today, collector),
         },
         [DailyNewspaperTableColumn.EXPIRES]: {
           N: `${expires.getTime() / 1000}`,

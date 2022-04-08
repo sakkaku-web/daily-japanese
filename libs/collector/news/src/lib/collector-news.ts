@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { saveCollectorData } from '@sakkaku-web/shared-cloud';
+import { Collector, saveCollectorData } from '@sakkaku-web/shared-cloud';
 
 const baseURL = 'https://newsapi.org/v2';
 const headlinesURL = `${baseURL}/top-headlines`;
@@ -40,7 +40,7 @@ export const handler = async () => {
     // );
     // const flattened = responses.reduce((prev, curr) => prev.concat(curr), []);
     const flattened = await searchForCategory(null);
-    await saveCollectorData(flattened);
+    await saveCollectorData(Collector.NEWS, flattened);
     return flattened;
   } catch (err) {
     console.log(err);
