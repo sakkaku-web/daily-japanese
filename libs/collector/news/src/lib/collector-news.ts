@@ -1,17 +1,8 @@
-import { DynamoDBClient, PutItemCommand } from '@aws-sdk/client-dynamodb';
-import {
-  DAILY_NEWSPAPER_TABLE,
-  DailyNewspaperTableColumn,
-  toDayCategoryId,
-  Collector,
-} from '@sakkaku-web/shared-cloud';
 import axios from 'axios';
-import { add } from 'date-fns';
+import { saveCollectorData } from '@sakkaku-web/shared-cloud';
 
 const baseURL = 'https://newsapi.org/v2';
 const headlinesURL = `${baseURL}/top-headlines`;
-
-const dynamodb = new DynamoDBClient({});
 
 enum Categories {}
 // BUSINESS = 'business',
@@ -49,27 +40,7 @@ export const handler = async () => {
     // );
     // const flattened = responses.reduce((prev, curr) => prev.concat(curr), []);
     const flattened = await searchForCategory(null);
-
-    const today = new Date();
-    const expires = add(today, { days: 3 });
-
-    await dynamodb.send(
-      new PutItemCommand({
-        TableName: DAILY_NEWSPAPER_TABLE,
-        Item: {
-          [DailyNewspaperTableColumn.DAY_CATEGORY_ID]: {
-            S: toDayCategoryId(today, Collector.NEWS),
-          },
-          [DailyNewspaperTableColumn.EXPIRES]: {
-            N: `${expires.getTime() / 1000}`,
-          },
-          [DailyNewspaperTableColumn.DATA]: {
-            S: JSON.stringify(flattened),
-          },
-        },
-      })
-    );
-
+    await saveCollectorData(flattened);
     return flattened;
   } catch (err) {
     console.log(err);
