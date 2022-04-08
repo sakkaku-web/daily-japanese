@@ -39,7 +39,7 @@ export class AppStack extends cdk.Stack {
     super(scope, id, props);
 
     const dailyRule = new Rule(this, 'daily-newspaper-cron', {
-      schedule: Schedule.cron({ minute: '0', hour: '0' }),
+      schedule: Schedule.cron({ minute: '0', hour: '1' }),
     });
 
     const table = new Table(this, 'daily-newspaper-table', {
