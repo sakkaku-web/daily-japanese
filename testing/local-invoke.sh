@@ -1,1 +1,1 @@
-aws lambda invoke --endpoint http://127.0.0.1:3001 --function-name "collector-news" testing/out.txt
+aws lambda invoke --endpoint http://127.0.0.1:3001 --function-name "$1" testing/out.txt

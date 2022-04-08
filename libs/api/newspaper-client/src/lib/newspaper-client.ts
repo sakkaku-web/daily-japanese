@@ -8,6 +8,10 @@ export class NewspaperClient {
     return this.getCollectorData<News[]>(Collector.NEWS);
   }
 
+  async getDailyWords(): Promise<DailyWord[]> {
+    return this.getCollectorData<DailyWord[]>(Collector.DAILY_WORD);
+  }
+
   private async getCollectorData<T>(collector: Collector): Promise<T> {
     return axios
       .get(`${this.baseURL}/daily-newspaper/${collector}`)
@@ -21,4 +25,9 @@ export interface News {
   url: string;
   urlToImage: string;
   publishedAt: string;
+}
+
+export interface DailyWord {
+  word: string;
+  category: string;
 }
