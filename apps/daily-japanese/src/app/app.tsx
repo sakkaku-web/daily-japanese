@@ -12,7 +12,7 @@ export function App() {
 
   return (
     <div className="p-5 text-white md:mx-[20%] lg:mx-[35%]">
-      <h1 className="text-center text-2xl mb-3 font-bold">DailyJapanese</h1>
+      <h1 className="text-center text-2xl mb-3 font-bold">Daily Japanese</h1>
       <ul className="flex flex-col flex-wrap gap-4">
         {news.map((x, i) => (
           <li key={i} className="rounded-md bg-gray-800">
