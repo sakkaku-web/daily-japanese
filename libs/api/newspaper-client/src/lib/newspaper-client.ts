@@ -29,5 +29,6 @@ export interface News {
 
 export interface DailyWord {
   word: string;
+  reading: string;
   category: string;
 }
