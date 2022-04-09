@@ -10,9 +10,10 @@ function randomInt(min: number, max: number) {
   return Math.floor(Math.random() * max) + min;
 }
 
-function parseWord(data: Record<string, string>) {
+function parseWord(data: Record<string, any>) {
   return {
     word: data.slug,
+    reading: data.japanese[0].reading,
   };
 }
 
