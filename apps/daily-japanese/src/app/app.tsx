@@ -10,8 +10,6 @@ export function App() {
     client.getNews().then(setNews);
   }, []);
 
-  console.log(news);
-
   return (
     <div className="p-5 bg-gray-900 text-white">
       <h1 className="text-center text-2xl mb-3 font-bold">DailyJapanese</h1>
