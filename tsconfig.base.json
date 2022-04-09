@@ -21,6 +21,9 @@
       "@sakkaku-web/api/get-collector-data": [
         "libs/api/get-collector-data/src/index.ts"
       ],
+      "@sakkaku-web/collector/daily-word": [
+        "libs/collector/daily-word/src/index.ts"
+      ],
       "@sakkaku-web/collector/news": ["libs/collector/news/src/index.ts"],
       "@sakkaku-web/shared-cloud": ["libs/shared-cloud/src/index.ts"]
     }

@@ -53,6 +53,42 @@
         }
       }
     },
+    "collector-daily-word": {
+      "root": "libs/collector/daily-word",
+      "sourceRoot": "libs/collector/daily-word/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": [
+            "{options.outputFile}"
+          ],
+          "options": {
+            "lintFilePatterns": [
+              "libs/collector/daily-word/**/*.ts"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": [
+            "coverage/libs/collector/daily-word"
+          ],
+          "options": {
+            "jestConfig": "libs/collector/daily-word/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "package": {
+          "executor": "@myin/aws-cdk:package",
+          "options": {
+            "entryFile": "libs/collector/daily-word/src/index.ts",
+            "tsConfig": "libs/collector/daily-word/tsconfig.lib.json",
+            "outputPath": "dist/libs/collector/daily-word"
+          }
+        }
+      }
+    },
     "collector-news": {
       "root": "libs/collector/news",
       "sourceRoot": "libs/collector/news/src",

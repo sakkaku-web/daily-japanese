@@ -33,6 +33,9 @@
     "api-newspaper-client": {
       "tags": []
     },
+    "collector-daily-word": {
+      "tags": []
+    },
     "collector-news": {
       "tags": []
     },
