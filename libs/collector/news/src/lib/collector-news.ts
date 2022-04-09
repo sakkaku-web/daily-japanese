@@ -17,7 +17,7 @@ function searchForCategory(category: string): Promise<any[]> {
   const query = new URLSearchParams({
     country: 'jp',
     apiKey: process.env.NEWS_API,
-    pageSize: '5',
+    pageSize: '10',
     // category,
   });
   return axios.get(`${headlinesURL}?${query.toString()}`).then((res) => {
