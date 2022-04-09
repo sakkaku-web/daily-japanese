@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>DailyJapanese</title>
-    <base href="/daily-japanese/">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="styles.0e4338761429b4eb16ac.css"></head>
-  <body>
-    <div id="root"></div>
-  <script src="runtime.28c323bf8ee123f67bad.esm.js" type="module"></script><script src="polyfills.715a6cd6d0de8e26308e.esm.js" type="module"></script><script src="main.2298cdb339012584ca30.esm.js" type="module"></script></body>
 
-  <script>
-    (function () {
-      const redirect = sessionStorage.redirect;
-      delete sessionStorage.redirect;
-      if (redirect && redirect != location.href) {
-        console.log(`Redirected from ${redirect}`);
-        history.replaceState(null, null, redirect);
-      }
-    })();
-  </script>
+<head>
+  <meta charset="utf-8" />
+  <title>DailyJapanese</title>
+  <base href="/daily-japanese/">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+<link rel="stylesheet" href="styles.c639e1b897931ade7be7.css"></head>
+
+<body class="bg-gray-900">
+  <div id="root"></div>
+<script src="runtime.28c323bf8ee123f67bad.esm.js" type="module"></script><script src="polyfills.715a6cd6d0de8e26308e.esm.js" type="module"></script><script src="main.40fcbdef4c11f0a3dc1c.esm.js" type="module"></script></body>
+
+<script>
+  (function () {
+    const redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      console.log(`Redirected from ${redirect}`);
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+
 </html>
