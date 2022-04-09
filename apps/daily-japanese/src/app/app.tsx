@@ -13,17 +13,22 @@ export function App() {
   console.log(news);
 
   return (
-    <div className="p-3">
-      <h1 className="text-center">DailyJapanese</h1>
+    <div className="p-5 bg-gray-900 text-white">
+      <h1 className="text-center text-2xl mb-3 font-bold">DailyJapanese</h1>
       <ul>
         {news.map((x, i) => (
-          <li key={i} className="border-2 border-cyan-500 mb-3">
+          <li key={i} className="rounded-md mb-5 bg-gray-800">
             <div className="mb-2">
               <a href={x.url}>
-                <img src={x.urlToImage} alt={x.title} />
+                <img
+                  src={x.urlToImage}
+                  alt=""
+                  className="rounded-tl-md rounded-tr-md"
+                />
               </a>
+              <small className="px-4">{x.publishedAt}</small>
             </div>
-            <div className="px-4">
+            <div className="px-4 pb-2">
               <h2 className="text-2xl font-bold">
                 <a href={x.url}>{x.title}</a>
                 <p className="font-light text-base mt-4">{x.description}</p>
