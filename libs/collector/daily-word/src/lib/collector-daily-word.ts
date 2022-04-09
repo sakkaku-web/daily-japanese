@@ -1,5 +1,7 @@
 import { Collector, saveCollectorData } from '@sakkaku-web/shared-cloud';
 import axios from 'axios';
+import { EventBridgeEvent } from 'aws-lambda';
+import { add, parseISO } from 'date-fns';
 
 const baseURL = 'https://jisho.org/api/v1';
 const searchURL = `${baseURL}/search/words`;
@@ -46,7 +48,13 @@ const CATEGORIES_MAX_PAGES = {
   'jlpt-n1': 172,
 };
 
-export const handler = async (event: any, context: any) => {
+export const handler = async (
+  event: EventBridgeEvent<string, string>,
+  context: any
+) => {
+  const date = event.time ? parseISO(event.time) : new Date();
+  const nextDay = add(date, { days: 1 });
+
   try {
     const requests = Object.keys(CATEGORIES_MAX_PAGES).map(async (cat) => {
       return searchRandomWord(cat, randomInt(1, CATEGORIES_MAX_PAGES[cat] + 1));
@@ -55,7 +63,7 @@ export const handler = async (event: any, context: any) => {
     const words = await Promise.all(requests);
     const nonNull = words.filter((x) => !!x);
 
-    await saveCollectorData(Collector.DAILY_WORD, nonNull);
+    await saveCollectorData(Collector.DAILY_WORD, nonNull, nextDay);
 
     return words;
   } catch (err) {

@@ -22,10 +22,10 @@ export function toDayCategoryId(
 
 export function saveCollectorData(
   collector: Collector,
-  data: any
+  data: any,
+  date = new Date()
 ): Promise<any> {
-  const today = new Date();
-  const expires = add(today, { days: 3 });
+  const expires = add(date, { days: 3 });
 
   const dynamodb = new DynamoDBClient({});
   return dynamodb.send(
@@ -33,7 +33,7 @@ export function saveCollectorData(
       TableName: DAILY_NEWSPAPER_TABLE,
       Item: {
         [DailyNewspaperTableColumn.DAY_CATEGORY_ID]: {
-          S: toDayCategoryId(today, collector),
+          S: toDayCategoryId(date, collector),
         },
         [DailyNewspaperTableColumn.EXPIRES]: {
           N: `${expires.getTime() / 1000}`,
