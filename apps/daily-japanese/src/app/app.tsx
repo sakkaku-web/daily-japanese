@@ -11,11 +11,11 @@ export function App() {
   }, []);
 
   return (
-    <div className="p-5 bg-gray-900 text-white">
+    <div className="p-5 text-white md:mx-[20%] lg:mx-[35%]">
       <h1 className="text-center text-2xl mb-3 font-bold">DailyJapanese</h1>
-      <ul>
+      <ul className="flex flex-col flex-wrap gap-4">
         {news.map((x, i) => (
-          <li key={i} className="rounded-md mb-5 bg-gray-800">
+          <li key={i} className="rounded-md bg-gray-800">
             <div className="mb-2">
               <a href={x.url}>
                 <img
