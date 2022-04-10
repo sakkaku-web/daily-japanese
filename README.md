@@ -5,6 +5,7 @@ A newspaper like website that gives you your daily dose of japanese.
 ## Collectors
 
 - [News](./libs/collector/news/): https://newsapi.org/docs/
+- [Daily Word](./libs/collector/daily-word): https://jisho.org/api/v1/search/words?keyword=%23jlpt-n5
 
 ## Development
 
