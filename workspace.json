@@ -60,20 +60,14 @@
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "outputs": [
-            "{options.outputFile}"
-          ],
+          "outputs": ["{options.outputFile}"],
           "options": {
-            "lintFilePatterns": [
-              "libs/collector/daily-word/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/collector/daily-word/**/*.ts"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/collector/daily-word"
-          ],
+          "outputs": ["coverage/libs/collector/daily-word"],
           "options": {
             "jestConfig": "libs/collector/daily-word/jest.config.js",
             "passWithNoTests": true
@@ -115,6 +109,30 @@
             "entryFile": "libs/collector/news/src/index.ts",
             "tsConfig": "libs/collector/news/tsconfig.lib.json",
             "outputPath": "dist/libs/collector/news"
+          }
+        }
+      }
+    },
+    "components-japanese-wordle": {
+      "root": "libs/components/japanese-wordle",
+      "sourceRoot": "libs/components/japanese-wordle/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": [
+              "libs/components/japanese-wordle/**/*.{ts,tsx,js,jsx}"
+            ]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/components/japanese-wordle"],
+          "options": {
+            "jestConfig": "libs/components/japanese-wordle/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }

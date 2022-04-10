@@ -10,7 +10,7 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2017", "dom"],
+    "lib": ["es2021", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
@@ -25,6 +25,9 @@
         "libs/collector/daily-word/src/index.ts"
       ],
       "@sakkaku-web/collector/news": ["libs/collector/news/src/index.ts"],
+      "@sakkaku-web/components/japanese-wordle": [
+        "libs/components/japanese-wordle/src/index.ts"
+      ],
       "@sakkaku-web/shared-cloud": ["libs/shared-cloud/src/index.ts"]
     }
   },
