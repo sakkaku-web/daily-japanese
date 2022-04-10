@@ -16,22 +16,18 @@ export function App() {
       <ul className="flex flex-col flex-wrap gap-4">
         {news.map((x, i) => (
           <li key={i} className="rounded-md bg-gray-800">
-            <div className="mb-2">
-              <a href={x.url}>
-                <img
-                  src={x.urlToImage}
-                  alt=""
-                  className="rounded-tl-md rounded-tr-md"
-                />
-              </a>
-              <small className="px-4">{x.publishedAt}</small>
-            </div>
-            <div className="px-4 pb-2">
-              <h2 className="text-2xl font-bold">
-                <a href={x.url}>{x.title}</a>
+            <a href={x.url}>
+              <img
+                src={x.urlToImage}
+                className="max-h-52 rounded-tl-md rounded-tr-md object-cover w-full"
+                alt=""
+              />
+              <div className="px-4 py-2">
+                <p className="mb-2 text-xs text-white/50">{x.publishedAt}</p>
+                <h2 className="text-2xl font-bold">{x.title}</h2>
                 <p className="font-light text-base mt-4">{x.description}</p>
-              </h2>
-            </div>
+              </div>
+            </a>
           </li>
         ))}
       </ul>
