@@ -4,6 +4,12 @@
 @tailwind base;
 @tailwind utilities;
 
+body {
+  background: var(--default-cell-bg-color);
+}
+
+// BEGIN Japanese Wordle
+
 :root {
   --animation-speed: 1500ms;
   --animation-speed-fast: 250ms;
@@ -816,3 +822,5 @@ svg.cursor-pointer:hover {
   background-color: theme('colors.slate.800');
   color: white;
 }
+
+// END Japanese Wordle

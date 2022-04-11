@@ -1,0 +1,21 @@
+.menu {
+  @apply text-center;
+  @apply py-2;
+}
+
+.menu .links.open {
+  @apply block;
+}
+
+.menu .links {
+  @apply hidden;
+  @apply fixed;
+  @apply inset-0;
+  @apply py-20;
+  background: var(--default-cell-bg-color);
+}
+
+.menu .links a {
+  @apply block;
+  @apply py-5;
+}
