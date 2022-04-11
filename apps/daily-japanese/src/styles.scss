@@ -4,7 +4,7 @@
 @tailwind base;
 @tailwind utilities;
 
-.page-container {
+body {
   background: var(--default-cell-bg-color);
   color: var(--default-cell-text-color);
 }
