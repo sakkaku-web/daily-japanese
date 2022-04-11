@@ -4,8 +4,9 @@
 @tailwind base;
 @tailwind utilities;
 
-body {
+.page-container {
   background: var(--default-cell-bg-color);
+  color: var(--default-cell-text-color);
 }
 
 // BEGIN Japanese Wordle

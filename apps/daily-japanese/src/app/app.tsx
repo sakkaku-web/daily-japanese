@@ -12,19 +12,22 @@ const links = [
 ];
 
 export function App() {
-  document.body.classList.add('dark');
-
   return (
-    <div className="p-5 text-white md:mx-[20%] lg:mx-[35%] flex flex-col items-center">
-      <h1 className="text-2xl mb-3 font-bold">Daily Japanese</h1>
+    <div className="page-container dark">
+      <div className="p-5 md:mx-[20%] lg:mx-[35%] flex flex-col items-center">
+        <h1 className="text-2xl mb-3 font-bold">Daily Japanese</h1>
 
-      <Nav links={links} />
+        <Nav links={links} />
 
-      <Routes>
-        <Route path="/daily-word" element={<DailyWordPage client={client} />} />
-        <Route path="/news" element={<NewsPage client={client} />} />
-        <Route path="/" element={<Navigate to="/news" />} />
-      </Routes>
+        <Routes>
+          <Route
+            path="/daily-word"
+            element={<DailyWordPage client={client} />}
+          />
+          <Route path="/news" element={<NewsPage client={client} />} />
+          <Route path="/" element={<Navigate to="/news" />} />
+        </Routes>
+      </div>
     </div>
   );
 }
