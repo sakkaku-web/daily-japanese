@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { Collector } from '@sakkaku-web/shared-cloud';
+import { formatISO } from 'date-fns';
 
 export class NewspaperClient {
   private baseURL = 'https://ctnviqjrwa.execute-api.eu-central-1.amazonaws.com';
@@ -8,13 +9,20 @@ export class NewspaperClient {
     return this.getCollectorData<News[]>(Collector.NEWS);
   }
 
-  async getDailyWords(): Promise<DailyWord[]> {
-    return this.getCollectorData<DailyWord[]>(Collector.DAILY_WORD);
+  async getDailyWords(date: Date): Promise<DailyWord[]> {
+    return this.getCollectorData<DailyWord[]>(Collector.DAILY_WORD, date);
   }
 
-  private async getCollectorData<T>(collector: Collector): Promise<T> {
+  private async getCollectorData<T>(
+    collector: Collector,
+    date: Date = new Date()
+  ): Promise<T> {
     return axios
-      .get(`${this.baseURL}/daily-newspaper/${collector}`)
+      .get(
+        `${this.baseURL}/daily-newspaper/${collector}?date=${formatISO(date, {
+          representation: 'date',
+        })}`
+      )
       .then((x) => x.data);
   }
 }
