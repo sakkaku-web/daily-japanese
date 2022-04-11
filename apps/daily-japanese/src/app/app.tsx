@@ -23,7 +23,7 @@ export function App() {
       <Routes>
         <Route path="/daily-word" element={<DailyWordPage client={client} />} />
         <Route path="/news" element={<NewsPage client={client} />} />
-        <Route path="/" element={<Navigate to="/news" />} />
+        <Route path="*" element={<Navigate to="/news" />} />
       </Routes>
     </div>
   );
