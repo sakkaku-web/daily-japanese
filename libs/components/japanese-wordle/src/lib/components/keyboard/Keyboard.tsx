@@ -53,10 +53,10 @@ export const Keyboard = ({
     <div>
       <div className="flex justify-center mb-1">
         {['わ', 'ら', 'や', 'ま', 'は', 'な', 'た', 'さ', 'か', 'あ'].map(
-          (key) => (
+          (key, i) => (
             <Key
               value={key}
-              key={key}
+              key={i}
               onClick={onClick}
               status={charStatuses[key]}
               isRevealing={isRevealing}
@@ -65,10 +65,10 @@ export const Keyboard = ({
         )}
       </div>
       <div className="flex justify-center mb-1">
-        {['', 'り', '', 'み', 'ひ', 'に', 'ち', 'し', 'き', 'い'].map((key) => (
+        {['', 'り', '', 'み', 'ひ', 'に', 'ち', 'し', 'き', 'い'].map((key, i) => (
           <Key
             value={key}
-            key={key}
+            key={i}
             onClick={onClick}
             status={charStatuses[key]}
             isRevealing={isRevealing}
@@ -77,10 +77,10 @@ export const Keyboard = ({
       </div>
       <div className="flex justify-center mb-1">
         {['ん', 'る', 'ゆ', 'む', 'ふ', 'ぬ', 'つ', 'す', 'く', 'う'].map(
-          (key) => (
+          (key, i) => (
             <Key
               value={key}
-              key={key}
+              key={i}
               onClick={onClick}
               status={charStatuses[key]}
               isRevealing={isRevealing}
@@ -89,10 +89,10 @@ export const Keyboard = ({
         )}
       </div>
       <div className="flex justify-center mb-1">
-        {['', 'れ', '', 'め', 'へ', 'ね', 'て', 'せ', 'け', 'え'].map((key) => (
+        {['', 'れ', '', 'め', 'へ', 'ね', 'て', 'せ', 'け', 'え'].map((key, i) => (
           <Key
             value={key}
-            key={key}
+            key={i}
             onClick={onClick}
             status={charStatuses[key]}
             isRevealing={isRevealing}
@@ -101,10 +101,10 @@ export const Keyboard = ({
       </div>
       <div className="flex justify-center mb-2">
         {['を', 'ろ', 'よ', 'も', 'ほ', 'の', 'と', 'そ', 'こ', 'お'].map(
-          (key) => (
+          (key, i) => (
             <Key
               value={key}
-              key={key}
+              key={i}
               onClick={onClick}
               status={charStatuses[key]}
               isRevealing={isRevealing}
@@ -113,10 +113,10 @@ export const Keyboard = ({
         )}
       </div>
       <div className="flex justify-center mb-1">
-        {['ー', '', 'ゃ', 'ぱ', 'ば', '', 'だ', 'ざ', 'が', 'ぁ'].map((key) => (
+        {['ー', '', 'ゃ', 'ぱ', 'ば', '', 'だ', 'ざ', 'が', 'ぁ'].map((key, i) => (
           <Key
             value={key}
-            key={key}
+            key={i}
             onClick={onClick}
             status={charStatuses[key]}
             isRevealing={isRevealing}
@@ -124,10 +124,10 @@ export const Keyboard = ({
         ))}
       </div>
       <div className="flex justify-center mb-1">
-        {['', '', '', 'ぴ', 'び', '', 'ぢ', 'じ', 'ぎ', 'ぃ'].map((key) => (
+        {['', '', '', 'ぴ', 'び', '', 'ぢ', 'じ', 'ぎ', 'ぃ'].map((key, i) => (
           <Key
             value={key}
-            key={key}
+            key={i}
             onClick={onClick}
             status={charStatuses[key]}
             isRevealing={isRevealing}
@@ -136,10 +136,10 @@ export const Keyboard = ({
       </div>
       <div className="flex justify-center mb-1">
         {['ゔ', '', 'ゅ', 'ぷ', 'ぶ', 'っ', 'づ', 'ず', 'ぐ', 'ぅ'].map(
-          (key) => (
+          (key, i) => (
             <Key
               value={key}
-              key={key}
+              key={i}
               onClick={onClick}
               status={charStatuses[key]}
               isRevealing={isRevealing}
@@ -148,10 +148,10 @@ export const Keyboard = ({
         )}
       </div>
       <div className="flex justify-center mb-1">
-        {['', '', '', 'ぺ', 'べ', '', 'で', 'ぜ', 'げ', 'ぇ'].map((key) => (
+        {['', '', '', 'ぺ', 'べ', '', 'で', 'ぜ', 'げ', 'ぇ'].map((key, i) => (
           <Key
             value={key}
-            key={key}
+            key={i}
             onClick={onClick}
             status={charStatuses[key]}
             isRevealing={isRevealing}
@@ -159,10 +159,10 @@ export const Keyboard = ({
         ))}
       </div>
       <div className="flex justify-center">
-        {['', '', 'ょ', 'ぽ', 'ぼ', '', 'ど', 'ぞ', 'ご', 'ぉ'].map((key) => (
+        {['', '', 'ょ', 'ぽ', 'ぼ', '', 'ど', 'ぞ', 'ご', 'ぉ'].map((key, i) => (
           <Key
             value={key}
-            key={key}
+            key={i}
             onClick={onClick}
             status={charStatuses[key]}
             isRevealing={isRevealing}
