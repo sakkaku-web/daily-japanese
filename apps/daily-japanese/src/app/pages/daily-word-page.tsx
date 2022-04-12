@@ -1,7 +1,6 @@
 import { DailyWord, NewspaperClient } from '@sakkaku-web/api-newspaper-client';
 import { JapaneseWordle } from '@sakkaku-web/components/japanese-wordle';
-import { add } from 'date-fns';
-import { isSameDay } from 'date-fns/esm';
+import { add, isSameDay } from 'date-fns';
 import { useEffect, useState } from 'react';
 import { DailyWordCategorySelect } from '../components/daily-word-category-select';
 import { DailyWordComponent } from '../components/daily-word-component';
@@ -61,9 +60,6 @@ export function DailyWordPage({ client }: DailyWordPageProps) {
 
     client.getDailyWords(today).then((words) => {
       setDailyWords(words);
-      if (selectedCategory == null) {
-        setSelectedCategory(words[0]?.category);
-      }
       updateDailyWordCache({ dailyWords: words });
     });
     client.getDailyWords(add(today, { days: 1 })).then((words) => {
@@ -71,6 +67,12 @@ export function DailyWordPage({ client }: DailyWordPageProps) {
       updateDailyWordCache({ nextDailyWords: words });
     });
   }, []);
+
+  useEffect(() => {
+    if (selectedCategory == null) {
+      setSelectedCategory(dailyWords[0]?.category);
+    }
+  }, [dailyWords, selectedCategory]);
 
   const getAttemptsForWord = (word: string) => {
     return word.length * 2;
