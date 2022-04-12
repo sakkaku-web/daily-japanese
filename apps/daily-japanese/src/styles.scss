@@ -9,6 +9,10 @@ body {
   color: var(--default-cell-text-color);
 }
 
+select {
+  background: var(--default-cell-bg-color);
+}
+
 // BEGIN Japanese Wordle
 
 :root {
