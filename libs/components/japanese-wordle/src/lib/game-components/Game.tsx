@@ -69,8 +69,17 @@ export function Game({
   }, [isDarkMode]);
 
   useEffect(() => {
+    const loaded = loadGameStateFromLocalStorage();
+    if (loaded?.solution !== word) {
+      setGuesses([]);
+      setIsGameLost(false);
+      setIsGameWon(false);
+    }
+  }, [word]);
+
+  useEffect(() => {
     saveGameStateToLocalStorage({ guesses, solution: word });
-  }, [guesses, word]);
+  }, [guesses]);
 
   useEffect(() => {
     const delayMs = REVEAL_TIME_MS * word.length;
