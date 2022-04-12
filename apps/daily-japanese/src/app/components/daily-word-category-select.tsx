@@ -1,5 +1,5 @@
 interface DailyWordCategorySelectProps {
-  category: string;
+  category: string | null;
   categories: string[];
   onCategorySelect: (cat: string) => void;
 }
@@ -12,7 +12,7 @@ export function DailyWordCategorySelect({
   return (
     <select
       className="text-center mt-4"
-      value={category}
+      value={category || ''}
       onChange={(e) => onCategorySelect(e.target.value)}
     >
       {categories.map((cat) => (

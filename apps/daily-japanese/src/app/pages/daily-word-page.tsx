@@ -9,16 +9,27 @@ interface DailyWordPageProps {
   client: NewspaperClient;
 }
 
+const DAILY_WORD_CATEGORY_KEY = 'dailyJapanese-dailyWord-category';
+
 export function DailyWordPage({ client }: DailyWordPageProps) {
   const [dailyWords, setDailyWords] = useState([] as DailyWord[]);
   const [nextDailyWords, setNextDailyWords] = useState([] as DailyWord[]);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState(
+    localStorage.getItem(DAILY_WORD_CATEGORY_KEY)
+  );
+
+  const saveSelectedCategory = (cat: string) => {
+    setSelectedCategory(cat);
+    localStorage.setItem(DAILY_WORD_CATEGORY_KEY, cat);
+  };
 
   useEffect(() => {
     const today = new Date();
     client.getDailyWords(today).then((words) => {
       setDailyWords(words);
-      setSelectedCategory(words[0]?.category);
+      if (selectedCategory == null) {
+        setSelectedCategory(words[0]?.category);
+      }
     });
     client.getDailyWords(add(today, { days: 1 })).then(setNextDailyWords);
   }, []);
@@ -42,7 +53,7 @@ export function DailyWordPage({ client }: DailyWordPageProps) {
           <DailyWordCategorySelect
             categories={categories}
             category={selectedCategory}
-            onCategorySelect={setSelectedCategory}
+            onCategorySelect={saveSelectedCategory}
           />
         )}
       </div>
