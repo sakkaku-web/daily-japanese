@@ -7,6 +7,7 @@
 body {
   background: var(--default-cell-bg-color);
   color: var(--default-cell-text-color);
+  transition: background ease-in .5s;
 }
 
 select {
