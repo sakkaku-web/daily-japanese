@@ -15,7 +15,7 @@ export function NewsPage({ client }: NewsPageProps) {
   return (
     <ul className="flex flex-col flex-wrap gap-4">
       {news.map((x, i) => (
-        <li key={i} className="rounded-md bg-gray-800">
+        <li key={i} className="rounded-md bg-gray-200 dark:bg-gray-800">
           <a href={x.url}>
             <img
               src={x.urlToImage}
@@ -23,7 +23,7 @@ export function NewsPage({ client }: NewsPageProps) {
               alt=""
             />
             <div className="px-4 py-2">
-              <p className="mb-2 text-xs text-white/50">{x.publishedAt}</p>
+              <p className="mb-2 text-xs dark:text-white/50">{x.publishedAt}</p>
               <h2 className="text-2xl font-bold">{x.title}</h2>
               <p className="font-light text-base mt-4">{x.description}</p>
             </div>

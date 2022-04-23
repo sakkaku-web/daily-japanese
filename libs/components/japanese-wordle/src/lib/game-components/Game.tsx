@@ -20,19 +20,11 @@ type Props = {
   word: string;
   maxAttempts: number;
   hardMode?: boolean;
-  darkMode?: boolean;
   onWin?: () => void;
   onLose?: () => void;
 };
 
-export function Game({
-  word,
-  maxAttempts,
-  hardMode,
-  darkMode,
-  onWin,
-  onLose,
-}: Props) {
+export function Game({ word, maxAttempts, hardMode, onWin, onLose }: Props) {
   const isHardMode = hardMode || false;
   const { showError: showErrorAlert, showSuccess: showSuccessAlert } =
     useAlert();
@@ -44,8 +36,6 @@ export function Game({
   const [isGameWon, setIsGameWon] = useState(false);
   const [isGameLost, setIsGameLost] = useState(false);
   const [isRevealing, setIsRevealing] = useState(false);
-
-  const [isDarkMode] = useState(darkMode);
 
   const [guesses, setGuesses] = useState<string[]>(() => {
     const loaded = loadGameStateFromLocalStorage();
@@ -59,14 +49,6 @@ export function Game({
   const clearCurrentRowClass = () => {
     setCurrentRowClass('');
   };
-
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
 
   useEffect(() => {
     const loaded = loadGameStateFromLocalStorage();
