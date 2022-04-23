@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { Nav } from './nav';
 import { DailyWordPage } from './pages/daily-word-page';
 import { NewsPage } from './pages/news-page';
+import { DarkLightModeBtn } from './components/dark-light-mode-button';
 
 const client = new NewspaperClient();
 
@@ -17,7 +18,7 @@ export function App() {
   return (
     <div className="p-5 md:mx-[20%] lg:mx-[35%] flex flex-col items-center">
       <h1 className="text-2xl mb-3 font-bold">Daily Japanese</h1>
-
+      <DarkLightModeBtn />
       <Nav links={links} />
 
       <Routes>
